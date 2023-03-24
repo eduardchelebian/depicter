@@ -4,22 +4,17 @@ import argparse
 from utils.patch_extraction import load_images, generate_coordinates, save_patches 
 
 def extract_patches(args):
-    # Get a list of all image files in the specified directory
     files = glob.glob(os.path.join(args.slide_path, '*'))
     print('Found ', len(files), ' files')
     print('------------------------------------------------------------------------------')
-    for file in files:
-        # Load the slide and mask images
-        print(f'Loading {os.path.basename(file)} ...')
+    for i, file in enumerate(files):
+        print(f'Loading {os.path.basename(file)} ...    ({i})/{len(files)}')
         image, mask = load_images(file, os.path.join(args.mask_path, os.path.basename(file)), args.level)
-        # Generate the coordinates of the patches
         coords = generate_coordinates(mask.shape, args.patch_shape, args.overlap)
-        # Save the extracted patches
         save_patches(coords, args.mask_th, image, mask, os.path.join(args.save_path, os.path.basename(file)))
-        print(f'Saved patches for {os.path.basename(file)}')
+        print(f'Saved patches for {os.path.basename(file)}     ({i})/{len(files)}')
         print('------------------------------------------------------------------------------')
 
-# Define the command-line arguments
 parser = argparse.ArgumentParser(description='Patch and feature extraction configuration')
 parser.add_argument('--slide_path', type=str, default=None, 
                     help='path to slide image or directory')
