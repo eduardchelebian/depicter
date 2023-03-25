@@ -293,6 +293,7 @@ dependencies:
     - pure-eval==0.2.2
     - pycosat==0.6.4
     - pycparser==2.21
+    - pydensecrf==1.0rc3
     - pygments==2.11.2
     - pynndescent==0.5.8
     - pyopenssl==23.0.0
