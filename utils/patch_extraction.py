@@ -24,24 +24,27 @@ def load_images(slide_path, mask_path, level):
 
     try: 
         image = tifffile.imread(slide_path, level=level)
-        mask = tifffile.imread(mask_path, level=level)
-
     except tifffile.TiffFileError:
-        print('Not a TIFF file; loading conventionally ignoring `level` argument')
+        print('Not a TIFF file; loading conventionally and downsizing`level` argument')
         image = Image.open(slide_path)
-        mask = Image.open(mask_path)
-        
-
+        image = image.resize((image.width//(2**level), image.height//(2**level)))        
     except IndexError:
         print('Could not load pyramid level; loading full image and resizing instead')
-
         image = tifffile.imread(slide_path)
         image = Image.fromarray(image)
-        image = image.resize((image.width//(level**2), image.height//(level**2)))        
+        image = image.resize((image.width//(2**level), image.height//(2**level)))        
 
+    try: 
+        mask = tifffile.imread(mask_path, level=level)
+    except tifffile.TiffFileError:
+        print('Not a TIFF file; loading conventionally and downsizing with `level` argument')
+        mask = Image.open(mask_path).convert('1')
+        mask = mask.resize((mask.width//(2**level), mask.height//(2**level)))        
+    except IndexError:
+        print('Could not load pyramid level; loading full image and resizing instead')      
         mask = tifffile.imread(mask_path)
         mask = Image.fromarray(mask)
-        mask = mask.resize((mask.width//(level**2), mask.height//(level**2)))        
+        mask = mask.resize((mask.width//(2**level), mask.height//(2**level)))        
     
     image = np.array(image)
     mask = np.array(mask)
@@ -51,6 +54,35 @@ def load_images(slide_path, mask_path, level):
         
     return image, mask
 
+
+def load_images_resize(slide_path, mask_path, level):
+    """
+    Load slide and mask images from TIF files using the tifffile library.
+
+    Args:
+        slide_path (str): The path to the slide image file.
+        mask_path (str): The path to the mask image file.
+        level (int): The level of the pyramid to use.
+
+    Returns:
+        A tuple containing the slide image and its mask, both as NumPy arrays.
+    """
+
+    image = tifffile.imread(slide_path, level=level)
+    mask = Image.open(mask_path)
+    mask = np.array(mask)[:,:,0]>0
+
+    image = Image.fromarray(image)
+    mask = Image.fromarray(mask).convert('1')
+    mask = mask.resize((image.width, image.height))
+
+    image = np.array(image)
+    mask = np.array(mask)
+
+    mask = np.asarray(mask) > 0
+    mask = mask.astype(bool)
+        
+    return image, mask
 
 
 def generate_coordinates(image_shape, patch_shape, overlap):

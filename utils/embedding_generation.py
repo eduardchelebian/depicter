@@ -13,6 +13,7 @@ from tqdm import tqdm
 import umap.umap_ as umap
 from matplotlib.colors import rgb2hex
 import pickle
+import anndata
 
 import pytorch_lightning as pl
 
@@ -74,12 +75,10 @@ def extract_features(model, dataloader):
     return embeddings, filenames
     
 
-def load_model(model_path, imagenet_weights=False):
-    if imagenet_weights:
-        model = torchvision.models.resnet18()
-        # model = torchvision.models.resnet50()
-    else:  
-        model = torchvision.models.__dict__['resnet18'](pretrained=False)
+def load_model(model_path, architecture, imagenet_weights=False):
+    model = torchvision.models.__dict__[architecture](pretrained=imagenet_weights)
+    if imagenet_weights == False:
+        print('Loading model from ', model_path)
         state = torch.load(model_path)
         state_dict = state['state_dict']
         for key in list(state_dict.keys()):
@@ -118,3 +117,24 @@ def generate_umap(backbone, patch_path, num_workers, experiment_name):
 
     pd.DataFrame(np.hstack([np.array([components[:,0], components[:,1], pos_x, pos_y]).transpose(), hex_feat]),
             columns=['UMAP1', 'UMAP2','x', 'y', 'color']).to_csv(os.path.join(patch_path, 'UMAP_'+experiment_name+'.csv'))
+    
+
+def csv2h5ad(patch_path, experiment_name):
+
+    coordinates_df = pd.read_csv(os.path.join(patch_path, 'UMAP_'+experiment_name+'.csv'))
+    with open(os.path.join(patch_path, 'embeddings_'+experiment_name+'.p'), "rb") as f:
+        features_array = pickle.load(f)
+
+    obs_df = coordinates_df[["color"]]
+    UMAP_array = coordinates_df[["UMAP1","UMAP2"]].to_numpy()
+    spatial_array = coordinates_df[["x","y"]].to_numpy()
+
+    obsm_df = {}
+    obsm_df["X_umap"] = UMAP_array
+    obsm_df["spatial"] = spatial_array
+    obsm_df["features"] = features_array
+
+    adata = anndata.AnnData(None, obs=obs_df, obsm=obsm_df)
+    adata.write_h5ad(os.path.join(patch_path, experiment_name+'.h5ad'))
+
+    
