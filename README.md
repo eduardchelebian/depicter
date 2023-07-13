@@ -29,8 +29,6 @@ python extract_patches.py \
 --save_path='/path/to/saving'
 ```
 
-
-
 ## Embedding generation using a pretrained model
 
 > Note: Networks pretrained on ImageNet or publicly available pretrained networks, such as the one proposed by [Ciga et al, 2021](https://doi.org/10.1016/j.mlwa.2021.100198) available [here](https://github.com/ozanciga/self-supervised-histopathology/releases/tag/tenpercent) already showed great results with DEPICTER. Thus, we recommend this basic approach before going on trying to train your own model (advanced block explained afterwards).
