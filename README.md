@@ -31,9 +31,9 @@ python extract_patches.py \
 
 
 
-## (basic) Embedding generation using a pretrained model
+## Embedding generation using a pretrained model
 
-> **Note**: Networks pretrained on ImageNet or publicly available pretrained networks, such as the one proposed by [Ciga et al, 2021](https://doi.org/10.1016/j.mlwa.2021.100198) available [here](https://github.com/ozanciga/self-supervised-histopathology/releases/tag/tenpercent) already showed great results with DEPICTER. Thus, we recommend this basic approach before going on trying to train your own model (advanced block explained afterwards).
+> Note: Networks pretrained on ImageNet or publicly available pretrained networks, such as the one proposed by [Ciga et al, 2021](https://doi.org/10.1016/j.mlwa.2021.100198) available [here](https://github.com/ozanciga/self-supervised-histopathology/releases/tag/tenpercent) already showed great results with DEPICTER. Thus, we recommend this basic approach before going on trying to train your own model (advanced block explained afterwards).
 
 After the images are divided into patches, we can generate their embeddings. This will produce, among others, the `[experiment].h5ad` file that will be the input to the DEPICTER plugin in TissUUmaps.
 
@@ -49,4 +49,4 @@ python generate_embeddings.py \
 --num_workers=32
 ```
 
-## (advanced) Pretraining your own self-supervised model
+## Advanced: Pretraining your own self-supervised model
