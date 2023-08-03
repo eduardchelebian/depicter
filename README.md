@@ -1,4 +1,10 @@
 # DEPICTER: Deep rEPresentation ClusTERing 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![Static Badge](https://img.shields.io/badge/demo-interactive-brightgreen?link=https%3A%2F%2Ftissuumaps.scilifelab.se%2Fpatient_012_node_0.tmap%3Fpath%3Dprivate%2FEduard%2Fcamelyon)
+
+## TO-DO
+- [ ] Add images once preprint/article is available.
+- [ ] Add citation links once preprint/article is available.
 
 ## Installation
 
@@ -11,6 +17,8 @@ To activate the environment:
 ```shell
 conda activate depicter_env
 ```
+
+In order to use the interactive tool, [installing TissUUmaps 3.0](https://tissuumaps.github.io/installation/) is also necessary. Please follow the instructions to install on Windows, Linux or macOS.
 
 ## Patch extraction
 
