@@ -1,6 +1,6 @@
 # DEPICTER: Deep rEPresentation ClusTERing 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Static Badge](https://img.shields.io/badge/demo-pathologist-brightgreen)](https://tissuumaps.scilifelab.se/patient_012_node_0.tmap?path=private/Eduard/camelyon)
+[![Static Badge](https://img.shields.io/badge/demo-simple-brightgreen)](https://tissuumaps.scilifelab.se/patient_012_node_0.tmap?path=private/Eduard/camelyon)
 
 ## TO-DO
 - [ ] Add images once preprint/article is available.
