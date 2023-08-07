@@ -5,6 +5,7 @@
 ## TO-DO
 - [ ] Add images once preprint/article is available.
 - [ ] Add citation links once preprint/article is available.
+- [ ] Add "Advanced: Pretraining your own self-supervised model" section.
 
 ## Installation
 
