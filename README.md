@@ -8,6 +8,7 @@
 
 ## Installation
 
+### Utils
 We recommend creating a conda environment for running the whole DEPICTER pipeline:
 ```shell
 conda env create -n depicter_env -f environment.yaml
@@ -17,9 +18,11 @@ To activate the environment:
 ```shell
 conda activate depicter_env
 ```
-
+### Interactive tool
 In order to use the interactive tool, [installing TissUUmaps 3.0](https://tissuumaps.github.io/installation/) is also necessary. Please follow the instructions to install on Windows, Linux or macOS.
 
+To install the DEPICTER plugin itself, start TissUUmaps (either the executable file or from terminal) and click on **Plugins** on the top left, **Add plugin**, tick the **DEPICTER** box and click **OK**. After restarting TissUUmaps, DEPICTER will appear in the **Plugins** tab.
+ 
 ## Patch extraction
 
 The first step is to divide the whole slide images into patches and save them in TIF format under `/path/to/saving`. The images should be saved under `/path/to/images` and have their corresponding masks saved in `/path/to/masks`. Depending on the naming used on them, minor details might be needed in the code `extract.patches.py` code. 
@@ -54,5 +57,17 @@ python generate_embeddings.py \
 --model_path='/path/to/pretrained/model.ckpt' \
 --num_workers=32
 ```
+
+## Using DEPICTER
+
+1. The image you want to annotate in TissUUmaps by dragging it and dropping it.
+2. Click on the **plus (+)** sign on the left channel and select the `[experiment].h5ad` file created for the corresponding file.
+3. Select `/obsm/spatial;0` as **X coordinate** and `/obsm/spatial;1` as **Y coordinate**. Click **Update view**.
+4. On the top left, select **Plugins** and **DEPICTER**. You may need to adjust the *Marker size* on the top right.
+5. Place the *Positive class* (usually cancer) and *Negative class* seeds either by clicking on the markers or by holding shift and drawing around them.
+6. Now you have two options:
+    * Click **Run Seeded Iterative Clustering**. Correct and repeat as needed.
+    * Based on where the positive seeds ended up in the feature space, click shift and draw around the markers in the feature space. Click **Feature space annotation** to complete the rest of the annotations with the negative class.
+7. When you are happy with the results, they can be downloaded as CSV containing the (X, Y) coordinates the DEPICTER parametes and the final class.
 
 ## Advanced: Pretraining your own self-supervised model
