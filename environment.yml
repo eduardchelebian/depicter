@@ -1,20 +1,18 @@
 name: depicter_env
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
 dependencies:
-  - pip=23.0.1
-  - pip:
-    - anndata==0.6.22.post1
-    - lightly==1.4.6
-    - matplotlib==3.7.1
-    - numpy==1.23.5
-    - pandas==1.5.3
-    - Pillow==9.4.0
-    - pydensecrf==1.0rc3
-    - pytorch_lightning==2.0.0
-    - scikit_image==0.19.3
-    - scikit_learn==1.2.1
-    - tifffile==2021.7.2
-    - torch==1.11.0
-    - torchvision==0.12.0
-    - tqdm==4.65.0
-    - umap_learn==0.5.3
-
+  - anndata==0.6.22.post1
+  - matplotlib==3.7.1
+  - numpy==1.23.5
+  - pandas==1.5.3
+  - pillow==9.4.0
+  - scikit-image==0.19.3
+  - scikit-learn==1.2.1
+  - tifffile==2021.7.2
+  - pytorch==1.11.0
+  - torchvision==0.12.0
+  - tqdm==4.65.0
+  - umap_learn==0.5.3
