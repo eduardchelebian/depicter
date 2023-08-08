@@ -1,11 +1,4 @@
 name: depicter_env
-channels:
-  - pytorch
-  - nvidia
-  - bioconda
-  - conda-forge/label/cf201901
-  - defaults
-  - conda-forge
 dependencies:
   - pip=23.0.1
   - pip:
