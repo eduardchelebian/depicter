@@ -12,7 +12,7 @@
 ### Utils
 We recommend creating a conda environment for running the whole DEPICTER pipeline:
 ```shell
-conda env create -n depicter_env -f environment.yaml
+conda env create -n depicter_env -f environment.yml
 ```
 
 To activate the environment:
