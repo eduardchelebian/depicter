@@ -72,3 +72,16 @@ python generate_embeddings.py \
 7. When you are happy with the results, they can be downloaded as CSV containing the (X, Y) coordinates the DEPICTER parametes and the final class.
 
 ## Advanced: Pretraining your own self-supervised model
+
+We used [lightly](https://docs.lightly.ai/self-supervised-learning/index.html) for pretraining self-supervised models with each dataset. You can find the installation instructions [here](https://docs.lightly.ai/self-supervised-learning/getting_started/install.html).
+
+Modyfing [lighly's SimCLR tutorial](https://docs.lightly.ai/self-supervised-learning/examples/simclr.html), `pretrain_simclr.py` contains the hyperparameters used for fine-tuning every model, starting from the previously mentioned model by [Ciga et al. 2021](https://github.com/ozanciga/self-supervised-histopathology/releases/tag/tenpercent). Note that we additionally used the [stainlib](https://github.com/sebastianffx/stainlib) library for H&E specific augmentations. The resulting collate function:
+
+```
+collate_fn = ImageCollateFunction(input_size = 224,
+                                 min_scale = 0.25,
+                                 vf_prob = 0.5,
+                                 hf_prob = 0.5,
+                                 rr_prob = 0.5,
+                                 hed_thresh = 0.3)
+```
