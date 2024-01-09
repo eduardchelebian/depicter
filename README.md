@@ -5,6 +5,7 @@
 ## TO-DO
 - [ ] Add images once preprint/article is available.
 - [ ] Add citation links once preprint/article is available.
+- [ ] Add workflow for processing the datasets once preprint/article is available.
 
 ## Installation
 
@@ -84,3 +85,15 @@ collate_fn = ImageCollateFunction(input_size = 224,
                                  rr_prob = 0.5,
                                  hed_thresh = 0.3)
 ```
+## Data availability
+
+The three datasets used for testing DEPICTER are publicly available:
+
+|   Dataset  	|             Grand challenge link            	| Elegible cases (train set) 	| Evaluated cases 	|
+|:----------:	|:-------------------------------------------:	|:--------------------------:	|:---------------:	|
+| CAMELYON17 	|   [https://camelyon17.grand-challenge.org/](https://camelyon17.grand-challenge.org/)   	 |             100            	|        17       	|
+|    ACDC    	|   [https://acdc-lunghp.grand-challenge.org/](https://acdc-lunghp.grand-challenge.org/)  	|             150            	|       104       	|
+| DigestPath 	|   [https://digestpath2019.grand-challenge.org/](https://digestpath2019.grand-challenge.org/) 	|             250            	|       196       	|
+
+## Reference
+
