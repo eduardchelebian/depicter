@@ -5,11 +5,6 @@
 
 ![](https://github.com/eduardchelebian/depicter/blob/main/label_prop.gif)
 
-
-## TO-DO
-- [ ] Add images once preprint/article is available.
-- [ ] Add workflow for processing the datasets once preprint/article is available.
-
 ## Installation
 
 ### Utils
