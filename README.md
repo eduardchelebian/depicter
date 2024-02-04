@@ -4,7 +4,6 @@
 
 ## TO-DO
 - [ ] Add images once preprint/article is available.
-- [ ] Add citation links once preprint/article is available.
 - [ ] Add workflow for processing the datasets once preprint/article is available.
 
 ## Installation
@@ -96,4 +95,17 @@ The three datasets used for testing DEPICTER are publicly available:
 | DigestPath 	|   [https://digestpath2019.grand-challenge.org/](https://digestpath2019.grand-challenge.org/) 	|             250            	|       196       	|
 
 ## Reference
+Chelebian, E., Avenel, C., Ciompi, F., & Wählby, C. (2024). DEPICTER: Deep representation clustering for histology annotation. Computers in Biology and Medicine, 108026. [https://doi.org/10.1016/j.compbiomed.2024.108026](https://doi.org/10.1016/j.compbiomed.2024.108026)
+```
+@article{chelebian2024depicter,
+  title={DEPICTER: Deep representation clustering for histology annotation},
+  author={Chelebian, Eduard and Avenel, Chirstophe and Ciompi, Francesco and W{\"a}hlby, Carolina},
+  journal={Computers in Biology and Medicine},
+  pages={108026},
+  year={2024},
+  publisher={Elsevier}
+}
+```
+
+
 
