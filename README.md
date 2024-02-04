@@ -2,6 +2,10 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Static Badge](https://img.shields.io/badge/demo-camelyon-brightgreen)](https://tissuumaps.scilifelab.se/patient_022_node_4.tmap?path=private/DEPICTER/camelyon)
 
+
+![](https://github.com/eduardchelebian/depicter/blob/main/label_prop.gif)
+
+
 ## TO-DO
 - [ ] Add images once preprint/article is available.
 - [ ] Add workflow for processing the datasets once preprint/article is available.
