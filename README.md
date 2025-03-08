@@ -1,6 +1,6 @@
 # DEPICTER: Deep rEPresentation ClusTERing 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Static Badge](https://img.shields.io/badge/demo-camelyon-brightgreen)](https://tissuumaps.scilifelab.se/patient_022_node_4.tmap?path=private/DEPICTER/camelyon)
+[![Static Badge](https://img.shields.io/badge/demo-camelyon-brightgreen)](https://depicter-2024.serve.scilifelab.se/patient_022_node_4.tmap?path=DEPICTER/camelyon)
 
 
 ![](https://github.com/eduardchelebian/depicter/blob/main/label_prop.gif)
